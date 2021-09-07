@@ -1,0 +1,12 @@
+Index: .gitignor.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignor.py b/.gitignor.py
+new file mode 100644
+--- /dev/null	(date 1631048741359)
++++ b/.gitignor.py	(date 1631048741359)
+@@ -0,0 +1,2 @@
++/venv/
++/.idea/
