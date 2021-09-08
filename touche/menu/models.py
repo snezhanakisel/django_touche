@@ -24,4 +24,9 @@ class Dish(models.Model):
         return self.name
 
 
+    class Meta:
+        verbose_name = 'Блюдо'
+        verbose_name_plural = "Блюда"
+
+
 
