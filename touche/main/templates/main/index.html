@@ -99,24 +99,27 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed.</p>
     </div>
   </div>
-<!--  <div class="container">-->
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-{% for c in cat_dish %}
+  <div class="container">
+    {% for c in cat_dish %}
+       <div class="col-xs-12 col-sm-6">
         <div class="menu-section">
           <h2 class="menu-section-title">{{ c }}</h2>
-<!--         <hr>-->
-      </div>
+          <hr>
+          {%  for d in dish %}
+          {% if d.cat_id == c.id %}
           <div class="menu-item">
-            {%  for d in dish %}
-            {% if d.cat_id == c.id %}
             <div class="menu-item-name"> {{ d.name }} </div>
             <div class="menu-item-price"> {{ d.price }} </div>
             <div class="menu-item-description"> {{ d.description }} </div>
-            {% endif %}
-            {%  endfor %}
-            {% endfor %}
+          </div>
+          {% endif %}
+          {%  endfor %}
         </div>
+       </div>
+    </div>
+     {% endfor %}
+      </div>
+    </div>
 <!-- Portfolio Section -->
 <div id="portfolio">
   <div class="section-title text-center center">
@@ -173,9 +176,9 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
       </div>
       <div id="row">
+        {% for c in chef %}
         <div class="col-md-4 team">
           <div class="thumbnail">
-            {% for c in chef %}
             <div class="team-img"><img src="{{ c.image }}" alt="..."></div>
             <div class="caption">
               <h3>{{ c.name_chef }}</h3>
@@ -185,6 +188,9 @@
           </div>
         {% endfor %}
         </div>
+      </div>
+    </div>
+  </div>
   <!-- Call Reservation Section -->
 <div id="call-reservation" class="text-center">
   <div class="container">
