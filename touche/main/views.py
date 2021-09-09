@@ -7,11 +7,15 @@ from .forms import ContactForm
 
 
 def index(request):
+    error_form = ''
 
     if request.method == 'POST':
         contact = ContactForm(request.POST)
+        print(request.POST)
         if contact.is_valid():
             contact.save()
+        else:
+            error_form = 'неверные данные'
 
     gallery_cat = Categorie.objects.all()
     gallery = Gallery.objects.all()
@@ -37,6 +41,8 @@ def index(request):
         'cat_dish': cat_dish,
         'dish': dish,
         'chef': chef,
-        'contact': contact
+        'contact': contact,
+        'error_form': error_form
+
     }
     return render(request, 'main/index.html', data)
