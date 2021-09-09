@@ -3,6 +3,7 @@ from gallery.models import *
 from menu.models import *
 from chefs.models import *
 from .forms import ContactForm
+from .models import Contact
 # Create your views here.
 
 
@@ -23,6 +24,7 @@ def index(request):
     dish = Dish.objects.all()
     chef = Chef.objects.all()
     contact = ContactForm
+    feedbacks = Contact.objects.all()
     menu = {
         'About': 'about',
         'Gallery': 'portfolio',
@@ -42,7 +44,8 @@ def index(request):
         'dish': dish,
         'chef': chef,
         'contact': contact,
-        'error_form': error_form
+        'error_form': error_form,
+        'feedbacks': feedbacks
 
     }
     return render(request, 'main/index.html', data)
